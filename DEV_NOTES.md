@@ -14,7 +14,7 @@ The goal was to get hands-on with the framework, understand how agentic workflow
   - `order_salad.py` - simulated automated ordering workflow.
   - `s3_writer_example.py` - tested S3 logging and confirmed upload worked with environment variables.
   - Other samples - validated execution and output.
-- Ran everything locally in VS Code for the best demo experience.
+- Ran everything locally in VS Code for the best experience.
 
 ---
 
