@@ -1,0 +1,5 @@
+.env
+___pycache___/
+*.pyc
+.venv
+.vscode/
