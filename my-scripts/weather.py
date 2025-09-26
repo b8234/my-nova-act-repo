@@ -3,15 +3,28 @@ import concurrent.futures
 from nova_act import NovaAct
 from dotenv import load_dotenv
 import unicodedata
+import re
 
 load_dotenv()
 
-def clean_text(text: str) -> str:
+def normalize_temp(text: str) -> str:
+    """
+    Normalize temperature text so it always looks like 'NN°F',
+    since Weather.com defaults to Fahrenheit.
+    """
+    if not text:
+        return text
     try:
         text = text.encode("latin1").decode("utf-8")
     except Exception:
         pass
-    return unicodedata.normalize("NFKC", text)
+    text = unicodedata.normalize("NFKC", text)
+
+    # Extract the numeric part of the temperature
+    m = re.search(r"(-?\d+)", text)
+    if m:
+        return f"{m.group(1)}°F"
+    return text.strip()
 
 def check_weather(city: str):
     with NovaAct(
@@ -22,14 +35,14 @@ def check_weather(city: str):
         agent.act(f"Enter '{city}' into the search box and submit")
         
         try:
-            agent.act("Click the 'x' to close any pop-up or cookie banner")
+            agent.act("Click the '×' to close any pop-up or cookie banner")
         except Exception:
             pass
 
         result = agent.act("Read the current temperature text from the results page")
-        return clean_text(result.response)
+        return normalize_temp(result.response)
 
-cities = ["Boston, MA", "New York, NY", "Chicago, IL"]
+cities = ["Boston, MA", "London, England", "Tokyo, Japan"]
 results = []
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
@@ -42,6 +55,6 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         except Exception as exc:
             print(f"{city} generated an exception: {exc}")
 
-print("Weather results:")
+print("\nWeather results:")
 for city, status in results:
     print(f"{city} → {status}")
