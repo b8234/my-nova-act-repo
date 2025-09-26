@@ -20,8 +20,8 @@ class BookRequest(BaseModel):
 # --- Collect and validate user input ---
 try:
     user_data = BookRequest(
-        book=input("Enter the book title (e.g., 48 Laws of Power): ").strip(),
-        author=input("Enter the author name (e.g., Robert Greene): ").strip(),
+        book=input("Enter the book title (e.g., The Alchemist): ").strip(),
+        author=input("Enter the author name (e.g., Paulo Coelho): ").strip(),
         format=input("Enter the format (e.g., Hardcover, Paperback, eBook): ").strip()
     )
 except ValidationError as e:
