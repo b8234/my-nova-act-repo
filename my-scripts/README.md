@@ -6,21 +6,21 @@ This repo contains sample scripts I created to explore **Amazon Nova Act** and d
 
 ## Scripts
 
+### `book_search.py`
+Searches for a book on Barnes & Noble by title and selects the first result by a specific author. Handles closing pop-ups.
+
+- **Why it matters**: Demonstrates search, filtering, and element selection in a real e-commerce flow.  
+- **What I learned**: How to combine user input (book, author, format) with Nova Act actions while accounting for unexpected site behaviors like pop-ups.  
+- **Future enhancement**: Expand to scrape book details (price, formats, ratings). Improve handling of the “location pop-up,” though this can also be resolved with human input without breaking the script.
+
+---
+
 ### `celtics_schedule.py`
 Extracts Boston Celtics games for specific month(s). Handles pop-ups, applies filters, and normalizes messy dates into a consistent format.
 
 - **Why it matters**: Shows how Nova Act can work with dynamic sports schedules and maintain extraction accuracy.  
 - **What I learned**: The importance of data normalization (e.g., turning `"Wed, Oct 30"` into `MM-DD-YYYY`).  
 - **Future enhancement**: Export results into JSON for easier sharing and analysis, and extend functionality to select a specific game and initiate ticket purchase.  
-
----
-
-### `book_search.py`
-Searches for a book on Barnes & Noble by title and selects the first result by a specific author. Handles closing pop-ups.
-
-- **Why it matters**: Demonstrates search, filtering, and element selection in a real e-commerce flow.  
-- **What I learned**: How to combine user input (book, author, format) with Nova Act actions while accounting for unexpected site behaviors like pop-ups.  
-- **Future enhancement**: Expand to scrape book details (price, formats, ratings). Improve handling of the “location pop-up,” though this can also be resolved with human input without breaking the script.  
 
 ---
 
