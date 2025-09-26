@@ -6,7 +6,7 @@ This repo contains sample scripts I created to explore **Amazon Nova Act** and d
 
 ## Scripts
 
-### `celtics_month.py`
+### `celtics_schedule.py`
 Extracts Boston Celtics games for specific month(s). Handles pop-ups, applies filters, and normalizes messy dates into a consistent format.
 
 - **Why it matters**: Shows how Nova Act can work with dynamic sports schedules and maintain extraction accuracy.  
@@ -24,7 +24,7 @@ Searches for a book on Barnes & Noble by title and selects the first result by a
 
 ---
 
-### `parallel.py`
+### `weather.py`
 Runs multiple Nova Act tasks in parallel, such as checking weather for multiple cities, with the headless browser parameter set to `True`.
 
 - **Why it matters**: Demonstrates that Nova Act can scale across concurrent tasks, not just one at a time.  
